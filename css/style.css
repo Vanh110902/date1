@@ -31,8 +31,10 @@ button{font-family:var(--display)}
 button:focus-visible{outline:3px solid #fff;outline-offset:3px;box-shadow:0 0 0 6px #bb91e988}
 .pop{animation:pop .8s cubic-bezier(.3,1.5,.5,1) both}
 @keyframes pop{from{transform:scale(0);opacity:0}}
-#scene-nav{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 44px);left:50%;translate:-50% 0;z-index:20;display:flex;align-items:center;justify-content:center;gap:12px}
+#scene-nav{position:fixed;bottom:calc(env(safe-area-inset-bottom) + 44px);left:50%;translate:-50% 0;z-index:20;display:flex;align-items:center;justify-content:center;gap:12px;width:max-content;max-width:calc(100vw - 24px)}
 #scene-nav #nxt{position:static;translate:none}
+body.lightbox-open #scene-nav{display:none}
+#scene-nav .btn{flex:0 0 auto;white-space:nowrap;padding-inline:clamp(14px,5vw,26px)}
 #nxt.show{animation:up .8s both}
 .btn-back{background:#fff;color:var(--ink);box-shadow:0 4px 12px #805b7426}
 .btn-back:hover{background:#f7eaf1;color:var(--ink);box-shadow:0 6px 16px #805b7433}

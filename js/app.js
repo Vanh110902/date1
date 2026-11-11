@@ -178,9 +178,9 @@ x => {
   P.forEach((p, i) => {
     const f = document.createElement('figure'); f.className = 'pol'; f.style.cssText = `--r:${R(-9, 9).toFixed(1)}deg;--d:${i * .4}s;--s:${i % 2 ? -1 : 1}`;
     const c = document.createElement('figcaption'); c.textContent = p.title || `Khoảnh khắc ${i + 1}`; f.append(img(p), c); w.append(f);
-    x.on(f, 'click', () => { lb.replaceChildren(f.cloneNode(true)); lb.classList.add('on'); Snd.chime([880]); });
+    x.on(f, 'click', () => { lb.replaceChildren(f.cloneNode(true)); lb.classList.add('on'); document.body.classList.add('lightbox-open'); Snd.chime([880]); });
   });
-  x.on(lb, 'click', () => lb.classList.remove('on')); x.later(() => x.next(), P.length * 400 + 1200);
+  x.on(lb, 'click', e => { if (e.target === lb) { lb.classList.remove('on'); document.body.classList.remove('lightbox-open'); } }); x.later(() => x.next(), P.length * 400 + 1200);
 },
 /* 04 Mưa hoa */
 x => {
